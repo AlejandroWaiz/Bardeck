@@ -4,12 +4,17 @@ import "./App.css";
 import HomePage from "./pages/Home/Home";
 import { Switch, Route } from 'react-router-dom';
 import './index.css';
+import LoginPage from "./pages/Login/Login";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <Switch>
-      <Route path="/" component={HomePage}/>
-    </Switch>
+    <AuthProvider> 
+      <Switch>
+        <Route exact path="/" component={LoginPage} />
+        <Route path="/home" component={HomePage} />
+      </Switch>
+    </AuthProvider>
   );
 }
 
